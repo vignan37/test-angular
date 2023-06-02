@@ -1,0 +1,45 @@
+<p>attribute-directive works!</p>
+
+
+<button [style.color]="isHightlighted? 'White' : 'black'"
+    [style.background-color]="isHightlighted? 'red' : 'blue'">Button</button>
+
+    <br>
+
+<button [ngStyle]="{background: isHightlighted? 'red' : 'blue',
+                    color: isHightlighted? 'white' : 'black'}">Button</button>
+
+<!--   ng class -->
+
+<h1 [ngClass]="{
+    'classOneCSS': classOneActive,
+    'classTwoCSS': classTwoActive
+}"> This is ng class </h1>
+
+<!--ng model-->
+
+<div class="form-area">
+    <h1>Sample form for two way binding using ng model</h1>
+    <input type="text" placeholder="Post Tilte" [(ngModel)] = 'title'>
+    <br><br>
+    <input type="text" placeholder="Post Details" [(ngModel)] = 'details' >
+    <br><br>
+    <input type="text" placeholder="Image URL" [(ngModel)] = 'imgUrl' >
+    <br><br>
+    <input type="text" placeholder="Post URL" [(ngModel)] = 'postUrl' >
+    <br><br>
+    <input type="checkbox" [(ngModel)] = 'boolAddBackground'> Add Background
+    
+</div>
+
+<div class = "preview-area">
+    <img [src] = "imgUrl" alt="">
+    <h1> <span [class.add-background]="boolAddBackground" >{{ title }} </span> </h1>
+    <p>{{details}}</p>
+    <a [href] = "postUrl" target="_blank" [style.display]=" postUrl ? 'block' : 'none'">More Details</a>
+</div>
+
+<input type="text" placeholder="One way binded" [value] = "oneWay" >
+<br><br>
+{{oneWay}}
+
