@@ -1,0 +1,41 @@
+<p>directive works!</p>
+
+<h1 *ngIf="bool"> Yes its true </h1>
+
+ <!--. if else -->
+
+ <div *ngIf="bool; else elseBlock">content to render, when the condition is true </div>
+
+ <ng-template #elseBlock>content to render, when the condition is false </ng-template>
+
+  <!--. if then else -->
+  <br>
+
+ <div *ngIf="bool; then thenBlock else elseBlock"> This content is not shown</div>
+<ng-template #thenBlock>content to render when the condition is true.</ng-template>
+<ng-template #elseBlock>content to render when condition is false.</ng-template>
+
+<br>
+<!--. ng For-->
+
+<h3 *ngFor="let post of postArray">{{post}}</h3>
+
+<br>
+
+<!--
+<h4 *ngFor="let obj of heroObjects">{{obj}}</h4>   -->
+
+<!--.by using pipe rendering object-->
+
+<!--                        -->
+<h4 *ngFor="let obj of heroObjects">{{ obj | json }} </h4>
+
+<!--ng Switch-->
+<div [ngSwitch]="num">
+    <div *ngSwitchCase="'1'">One</div>
+    <div *ngSwitchCase="'2'">Two</div>
+    <div *ngSwitchCase="'3'">Three</div>
+    <div *ngSwitchCase="'4'">Four</div>
+    <div *ngSwitchCase="'5'">Five</div>
+    <div *ngSwitchDefault>This is Default</div>
+  </div>
